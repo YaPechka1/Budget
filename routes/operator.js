@@ -1,0 +1,30 @@
+const express = require('express')
+const router =express.Router()
+const controller =require('../controllers/operator')
+const passport = require('passport')
+var mypass = require('./../tools/passport')
+
+
+router.post('/1',passport.authenticate('jwt',{session: false}),controller.category_create_costs)
+router.post('/2',passport.authenticate('jwt',{session: false}),controller.category_create_income)
+router.post('/3',passport.authenticate('jwt',{session: false}),controller.category_delete_costs)
+router.post('/4',passport.authenticate('jwt',{session: false}),controller.category_delete_income)
+router.get('/5',passport.authenticate('jwt',{session: false}),controller.category_display_costs)
+router.get('/6',passport.authenticate('jwt',{session: false}),controller.category_display_income)
+router.post('/7',passport.authenticate('jwt',{session: false}),controller.costs_create)
+router.post('/8',passport.authenticate('jwt',{session: false}),controller.costs_delete)
+
+router.get('/9',passport.authenticate('jwt',{session: false}),controller.costs_display)
+router.post('/10',passport.authenticate('jwt',{session: false}),controller.income_create)
+router.post('/11',passport.authenticate('jwt',{session: false}),controller.income_delete)
+
+router.get('/12',passport.authenticate('jwt',{session: false}),controller.income_display)
+router.get('/13',passport.authenticate('jwt',{session: false}),controller.costs_and_income_display)
+router.post('/14', passport.authenticate('jwt',{session: false}), controller.update_income )
+router.post('/15', passport.authenticate('jwt',{session: false}), controller.update_cost )
+router.post('/16', passport.authenticate('jwt',{session: false}), controller.updateZapIncome)
+router.post('/17', passport.authenticate('jwt',{session: false}), controller.updateZapCost )
+router.get('/18', passport.authenticate('jwt',{session: false}), controller.deleteAdmin )
+router.post('/19', passport.authenticate('jwt',{session: false}), controller.setAdmin )
+router.get('/20', passport.authenticate('jwt',{session: false}), controller.getAdmin )
+module.exports = router
