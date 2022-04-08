@@ -1,7 +1,7 @@
 const mysql =require('mysql')
 
 const conn = mysql.createConnection({
-    host:"localhost",
+    host:"afixukib.beget.app",
     user: "root",
     password:"root",
     database:"systemmoney_db"
